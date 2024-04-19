@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --font-family-display: "Roboto", "sans-serif";
+  --color-primary: #FF0101;
+  --color-secondary: #282D30;
+  --color-tertiary: #FBFBFB;
+}
+
+.navbar-item {
+  @apply text-lg font-bold  p-4 cursor-pointer;
+}
+.sport-icon {
+  @apply w-16 h-16 flex items-center justify-center bg-white text-primary rounded-xl cursor-pointer;
+}
+.data-icone {
+  @apply p-4 h-16 w-16 rounded-lg ;
+}
+.layout-dashboard {
+  grid-template: 
+    "a a a a a a b b" 
+    "a a a a a a b b" 
+    "a a a a a a b b" 
+    "a a a a a a b b" 
+    "c c c c c c b b" 
+    "c c c c c c b b" ;
+}
+
+.grid-a {
+  grid-area: a;
+}
+.grid-b {
+  grid-area: b;
+}
+.grid-c {
+  grid-area: c;
+}
+.grid-d {
+  grid-area: d;
+}
+.grid-e {
+  grid-area: e;
+}
