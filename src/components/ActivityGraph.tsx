@@ -14,9 +14,9 @@ const ActivityGraph: React.FC<ActivityGraphProps> = ({ data }) => {
         <ResponsiveContainer width="100%" height={400}>
             <BarChart data={data}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                <XAxis axisLine={false} />
-                <YAxis hide  yAxisId="right" orientation="left" dataKey="calories"/>
-                <YAxis yAxisId="left" orientation="right" dataKey='kilogram' axisLine={false} domain={['dataMin-1', 'dataMax + 1']} allowDecimals={false}/>
+                <XAxis axisLine={false} tickLine={false}/>
+                <YAxis hide  yAxisId="right" orientation="left" dataKey="calories" tickLine={false}/>
+                <YAxis yAxisId="left" orientation="right" dataKey='kilogram' tickLine={false} axisLine={false} domain={['dataMin-1', 'dataMax + 1']} allowDecimals={false}/>
                 <Tooltip content={<CustomTooltip active={false} payload={[]} />}/>
                 <Bar yAxisId="left" dataKey="kilogram" fill="#282D30" barSize={10} radius={[5,5,0,0]}/>
                 <Bar yAxisId="right" dataKey="calories" fill="#FF0101" barSize={10} radius={[5,5,0,0]}/>

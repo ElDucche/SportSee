@@ -15,15 +15,14 @@ const SessionGraph: React.FC<SessionGraphProps> = ({ data }) => {
             sessionLength: item.sessionLength
         }
     })
-    console.log(formattedData)
 
     return (
         <ResponsiveContainer width='100%' height='100%'>
             <LineChart data={formattedData}>
                 <Label value="Durée des sessions" position="insideTopLeft" style={{stroke:'#FFF'}}/>
-                <CartesianAxis />
-                <YAxis dataKey={'sessionLength'} hide/>
-                <XAxis dataKey='day' axisLine={false} style={{fill:'#FFF'}}/>
+                <CartesianAxis tickLine={false}/>
+                <YAxis dataKey={'sessionLength'} tickLine={false} hide domain={['dataMin - 10', 'dataMax + 30']}/>
+                <XAxis dataKey='day' axisLine={false} style={{fill:'#FFF'}} tickLine={false}/>
                 <Tooltip content={<CustomTooltip active={false} payload={[]}/>}/>
                 <Line dot={false} type="monotone" strokeWidth={2} dataKey="sessionLength" stroke="#FFF"/>
             </LineChart>
