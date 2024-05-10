@@ -1,4 +1,4 @@
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer, Label } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
 const PerformanceGraph = ({data}: {data: {value: number, kind: number}[]}) => {
     const kind: Record<number, string> = {
@@ -18,10 +18,8 @@ const PerformanceGraph = ({data}: {data: {value: number, kind: number}[]}) => {
     return (
         <ResponsiveContainer width="100%" height='100%'>
             <RadarChart data={formattedData} startAngle={150} endAngle={-210}>
-                <PolarGrid stroke='#FFF' strokeWidth={2}/>
-                <PolarAngleAxis dataKey="kind">
-                    <Label style={{fill:'#FFF'}}/>
-                </PolarAngleAxis>
+                <PolarGrid stroke='#FFF' strokeWidth={2} gridType='polygon' radialLines={false} polarRadius={[0, 10, 27, 49, 75, 99]}/>
+                <PolarAngleAxis dataKey="kind" tickLine={false} axisLine={false} style={{fill: '#FFF'}} tick={{ fill: "white", fontSize: 12 }} />
                 <Radar dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.7} legendType='diamond'/>
             </RadarChart>
         </ResponsiveContainer>
