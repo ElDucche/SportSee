@@ -5,17 +5,14 @@ import ActivityGraph from "./ActivityGraph";
 import SessionGraph from "./SessionGraph";
 import PerformanceGraph from "./PerformanceGraph";
 import ScoreGraph from "./ScoreGraph";
-import { useQuery } from "@tanstack/react-query";
+import { UseQueryResult, useQuery } from "@tanstack/react-query";
+import { Activity, AvgSession, User, Performance } from "../../types";
 
 const Dashboard = () => {
-    const user = useQuery({queryKey:['user'], queryFn: getUserInfos});
-    console.log(user.data)
-    const activity = useQuery({queryKey:['activity'], queryFn: getUserActivity});
-    console.log(activity.data)
-    const sessions = useQuery({queryKey:['sessions'], queryFn: getUserAverageSessions});
-    console.log(sessions.data)
-    const performances = useQuery({queryKey:['performances'], queryFn: getUserPerformance});
-    console.log(performances.data)
+    const user : UseQueryResult<User, Error> = useQuery({queryKey:['user'], queryFn: getUserInfos});
+    const activity : UseQueryResult<Activity, Error> = useQuery({queryKey:['activity'], queryFn: getUserActivity});
+    const sessions : UseQueryResult<AvgSession, Error> = useQuery({queryKey:['sessions'], queryFn: getUserAverageSessions});
+    const performances : UseQueryResult<Performance, Error>= useQuery({queryKey:['performances'], queryFn: getUserPerformance});
 
     if (user.isLoading || activity.isLoading || sessions.isLoading || performances.isLoading) {
         return <div>Loading...</div>; // ou un autre composant de chargement

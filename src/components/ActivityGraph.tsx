@@ -1,12 +1,9 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { Activity } from '../../types';
 
 interface ActivityGraphProps {
-    data: {
-        kilogram: number;
-        calories: number;
-        day: string;
-    }[];
+    data: Activity['sessions'];
 }
 
 const ActivityGraph: React.FC<ActivityGraphProps> = ({ data }) => {

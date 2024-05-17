@@ -1,9 +1,7 @@
+import { UserInfos } from "../../types";
+
 interface HeaderProps {
-    user: {
-        firstName: string;
-        lastName: string;
-        age: number;
-    }
+    user: UserInfos;
 }
 
 const Header: React.FC<HeaderProps> = ({user}) => {
