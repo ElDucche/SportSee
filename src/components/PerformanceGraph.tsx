@@ -1,7 +1,13 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
+import { Performance } from '../../types';
 
-const PerformanceGraph = ({data}: {data: {value: number, kind: number}[]}) => {
-    const kind: Record<number, string> = {
+interface PerformanceGraphProps {
+    data: Performance['data'];
+}
+
+
+const PerformanceGraph : React.FC<PerformanceGraphProps> = ({data}) => {
+    const kind: Performance['kind'] = {
         1: 'Cardio',
         2: 'Energie',
         3: 'Endurance',

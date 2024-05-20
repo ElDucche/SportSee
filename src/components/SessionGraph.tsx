@@ -1,10 +1,8 @@
 import { CartesianAxis, Label, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { AvgSession } from "../../types";
 
 interface SessionGraphProps {
-    data : {
-        day: number;
-        sessionLength: number;
-    }[];
+    data : AvgSession['sessions'];
 }
 
 const SessionGraph: React.FC<SessionGraphProps> = ({ data }) => {
