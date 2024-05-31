@@ -5,7 +5,7 @@ import { LuDumbbell } from "react-icons/lu";
 
 const SportMenu = () => {
     return (
-        <ul className="bg-black p-4 flex flex-col w-fit h-full gap-4 items-center justify-center absolute left-0">
+        <ul className="bg-black px-4 flex flex-col w-fit h-full gap-4 items-center justify-center absolute left-0">
             <li className="sport-icon"><GiMeditation size={30}/></li>
             <li className="sport-icon"><BiSwim size={30}/></li>
             <li className="sport-icon"><BiCycling size={30}/></li>

@@ -5,7 +5,6 @@ interface PerformanceGraphProps {
     data: Performance['data'];
 }
 
-
 const PerformanceGraph : React.FC<PerformanceGraphProps> = ({data}) => {
     const kind: Performance['kind'] = {
         1: 'Cardio',
@@ -24,10 +23,10 @@ const PerformanceGraph : React.FC<PerformanceGraphProps> = ({data}) => {
     })
     console.log(formattedData)
     return (
-        <ResponsiveContainer width="100%" height='88%'>
+        <ResponsiveContainer width="100%" height='82%'>
             <RadarChart data={formattedData} startAngle={-150} endAngle={210}>
-                <PolarGrid stroke='#FFF' strokeWidth={2} gridType='polygon' radialLines={false} polarRadius={[2 , 12 ,22 , 42, 62 , 82]}/>
-                <PolarAngleAxis dataKey="kind" tickLine={false} axisLine={false} style={{fill: '#FFF'}} tick={{ fill: "white", fontSize: 12 }} />
+                <PolarGrid stroke='#FFF' strokeWidth={2} gridType='polygon' radialLines={false} polarRadius={[5 ,15 , 25, 38 , 50]}/>
+                <PolarAngleAxis dataKey="kind" tickLine={false} axisLine={false} style={{fill: '#FFF'}} tick={{ fill: "white", fontSize: 8 }} />
                 <Radar dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.7} legendType='diamond'/>
             </RadarChart>
         </ResponsiveContainer>

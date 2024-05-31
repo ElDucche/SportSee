@@ -1,4 +1,4 @@
-import { CartesianAxis, Label, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { CartesianAxis, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { AvgSession } from "../lib/models/types";
 
 interface SessionGraphProps {
@@ -17,10 +17,9 @@ const SessionGraph: React.FC<SessionGraphProps> = ({ data }) => {
     return (
         <ResponsiveContainer width='100%' height='100%'>
             <LineChart data={formattedData}>
-                <Label value="Durée des sessions" position="insideTopLeft" style={{stroke:'#FFF'}}/>
                 <CartesianAxis tickLine={false}/>
                 <YAxis dataKey={'sessionLength'} tickLine={false} hide domain={['dataMin - 10', 'dataMax + 30']}/>
-                <XAxis dataKey='day' axisLine={false} style={{fill:'#FFF'}} tickLine={false}/>
+                <XAxis dataKey='day' axisLine={false} style={{fill:'#FFF', fontSize:'10px'}} tickLine={false}/>
                 <Tooltip content={<CustomTooltip active={false} payload={[]}/>}/>
                 <Line dot={false} type="monotone" strokeWidth={2} dataKey="sessionLength" stroke="#FFF"/>
             </LineChart>
@@ -40,7 +39,7 @@ const CustomTooltip: React.FC<TooltipProps> = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
         <div className="h-fit w-fit p-2 bg-white">
-          <p className="font-medium">{`${payload[0].value}min`}</p>
+          <p className="font-medium text-xs">{`${payload[0].value}min`}</p>
         </div>
       );
     }

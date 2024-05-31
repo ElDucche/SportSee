@@ -1,4 +1,4 @@
-import { getUserActivity, getUserAverageSessions, getUserInfos, getUserPerformance } from "../lib/service";
+import { getUserActivity, getUserAverageSessions, getUserInfos, getUserPerformance } from "../lib/mock";
 import Header from "./Header";
 import KeyData from "./KeyData";
 import ActivityGraph from "./ActivityGraph";
@@ -21,12 +21,12 @@ const Dashboard = () => {
     }
     if (user.isSuccess && activity.isSuccess && sessions.isSuccess && performances.isSuccess) {
         return (
-            <div className="h-full w-6xl">
-                <Header user={user.data.userInfos} />
-                <main className="layout-dashboard grid gap-4">
-                    <div className="grid-a rounded-lg bg-tertiary relative h-[400px] flex flex-col justify-between">
+            <>
+                <Header user={user.data.userInfos}/>
+                <main className="layout-dashboard grid gap-4 h-fit">
+                    <div className="grid-a rounded-lg bg-tertiary relative h-[300px] flex flex-col justify-between">
                         <div className="flex justify-between items-center p-4">
-                            <h3 className="font-medium">Activité quotidienne</h3>
+                            <h3 className="font-medium ">Activité quotidienne</h3>
                             <div className="flex gap-4 cursor-default">
                                 <span className="flex gap-2 text-secondary/80 items-center"><i className="w-3 h-3 rounded-full bg-secondary"></i>Poids (kg)</span>
                                 <span className="flex gap-2 text-secondary/80 items-center"><i className="w-3 h-3 rounded-full bg-primary"></i>Calories brûlées (kCal)</span>
@@ -43,28 +43,28 @@ const Dashboard = () => {
                             })
                         }
                     </div>
-                    <div className="grid-c flex items-center justify-between">
-                        <div className="py-4 bg-primary rounded-lg aspect-square w-64 flex items-center p-4 relative">
-                            <h3 className="absolute w-40 text-white top-4 left-4">Durée moyenne des sessions</h3>
+                    <div className="grid-c flex items-center justify-between gap-4">
+                        <div className="py-4 bg-primary rounded-lg w-40 aspect-square flex items-center p-4 pb-0 relative">
+                            <h3 className="absolute  text-white top-4 left-4 text-xs font-medium w-24">Durée moyenne des sessions</h3>
                             {/* graph sessions */}
                             <SessionGraph data={sessions.data.sessions}/>
                         </div>
-                        <div className="w-64 aspect-square  bg-secondary rounded-lg flex items-center justify-center">  
+                        <div className="w-40 aspect-square  bg-secondary rounded-lg flex items-center justify-center">  
                             {/* graph radar perf */}
                             <PerformanceGraph data={performances?.data?.data}/>
                         </div>
-                        <div className="w-64 self-end bg-tertiary rounded-lg aspect-square flex items-center justify-center -rotate-90 relative">
+                        <div className="w-40 aspect-square self-end bg-tertiary rounded-lg  flex items-center justify-center -rotate-90 relative">
                             {/* graph objectif % */}
                             <ScoreGraph score={user.data.todayScore}/>
-                            <h3 className="absolute top-8 rotate-90 right-2 text-lg font-semibold">Score</h3>
+                            <h3 className="absolute top-4 rotate-90 right-0 text-xs font-semibold">Score</h3>
                             <div className="absolute rotate-90 text-center">
-                                <span className="text-5xl font-bold">{user.data.todayScore * 100}%</span>
-                                <p className="text-secondary/50 w-[80%] mx-auto text-2xl">de votre objectif</p>
+                                <span className="text-3xl font-bold">{user.data.todayScore * 100}%</span>
+                                <p className="text-secondary/50 w-[80%] mx-auto text-xl">de votre objectif</p>
                             </div>
                         </div>
                     </div>
                 </main>
-            </div>
+            </>
         );   
     }  
 }

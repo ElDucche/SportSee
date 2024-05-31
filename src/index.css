@@ -7,14 +7,18 @@
   --color-tertiary: #FBFBFB;
 }
 
+/* * {
+  @apply box-content;
+} */
+
 .navbar-item {
-  @apply text-lg font-bold  p-4 cursor-pointer;
+  @apply text-lg font-bold  p-2 cursor-pointer;
 }
 .sport-icon {
-  @apply w-16 h-16 flex items-center justify-center bg-white text-primary rounded-xl cursor-pointer;
+  @apply w-12 h-12 flex items-center justify-center bg-white text-primary rounded-xl cursor-pointer;
 }
 .data-icone {
-  @apply p-4 h-16 w-16 rounded-lg ;
+  @apply p-4 h-10 w-10 rounded-lg box-content;
 }
 .layout-dashboard {
   grid-template: 
