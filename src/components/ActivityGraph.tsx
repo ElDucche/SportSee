@@ -1,6 +1,6 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { Activity } from '../../types';
+import { Activity } from '../lib/models/types';
 
 interface ActivityGraphProps {
     data: Activity['sessions'];
@@ -8,7 +8,7 @@ interface ActivityGraphProps {
 
 const ActivityGraph: React.FC<ActivityGraphProps> = ({ data }) => {
     return (
-        <ResponsiveContainer width="100%" height={400}>
+        <ResponsiveContainer width="100%" height={300}>
             <BarChart data={data}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <XAxis axisLine={false} tickLine={false}/>

@@ -1,5 +1,5 @@
 import { CartesianAxis, Label, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { AvgSession } from "../../types";
+import { AvgSession } from "../lib/models/types";
 
 interface SessionGraphProps {
     data : AvgSession['sessions'];

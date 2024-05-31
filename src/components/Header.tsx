@@ -1,4 +1,4 @@
-import { UserInfos } from "../../types";
+import { UserInfos } from "../lib/models/types";
 
 interface HeaderProps {
     user: UserInfos;

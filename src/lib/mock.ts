@@ -1,6 +1,6 @@
-import { User, AvgSession, Activity, Performance } from '../../types';
+import { User, AvgSession, Activity, Performance } from './models/types';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } = require('./data');
+import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from './data';
 
 const userId: number = 18;
 
