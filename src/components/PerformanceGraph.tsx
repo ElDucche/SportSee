@@ -15,13 +15,11 @@ const PerformanceGraph : React.FC<PerformanceGraphProps> = ({data}) => {
         6: 'Intensité'
     }
     const formattedData = data.map((item: {kind:number, value:number}) => {
-        console.log(item)
         return {
             kind: kind[item.kind],
             value: item.value
         }
     })
-    console.log(formattedData)
     return (
         <ResponsiveContainer width="100%" height='82%'>
             <RadarChart data={formattedData} startAngle={-150} endAngle={210}>
