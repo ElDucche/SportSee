@@ -9,7 +9,7 @@ const ScoreGraph = ({ score }: { score: number }) => {
     return (
         <ResponsiveContainer width="100%" height='100%' style={{zIndex:10}}>
             <RadialBarChart data={scores} innerRadius='80%' outerRadius='100%' barSize={20}>
-                <RadialBar dataKey='score'/>  
+                <RadialBar dataKey='score' cornerRadius={10}/>  
             </RadialBarChart>
         </ResponsiveContainer>
     );
