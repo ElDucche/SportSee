@@ -26,10 +26,10 @@ const Dashboard = () => {
                 <main className="layout-dashboard grid gap-4 h-fit">
                     <section className="grid-a rounded-lg bg-tertiary relative h-[300px] flex flex-col justify-between">
                         <div className="flex justify-between items-center p-4">
-                            <h3 className="font-medium text-xs">Activité quotidienne</h3>
+                            <h3 className="font-medium max-xl:text-xs">Activité quotidienne</h3>
                             <div className="flex gap-4 cursor-default">
-                                <span className="flex gap-2 text-secondary/80 items-center text-xs"><i className="w-3 h-3 rounded-full bg-secondary text-xs"></i>Poids (kg)</span>
-                                <span className="flex gap-2 text-secondary/80 items-center text-xs"><i className="w-3 h-3 rounded-full bg-primary text-xs"></i>Calories brûlées (kCal)</span>
+                                <span className="flex gap-2 text-secondary/80 items-center max-xl:text-xs text-sm"><i className="w-3 h-3 rounded-full bg-secondary "></i>Poids (kg)</span>
+                                <span className="flex gap-2 text-secondary/80 items-center max-xl:text-xs text-sm"><i className="w-3 h-3 rounded-full bg-primary"></i>Calories brûlées (kCal)</span>
                             </div>
                         </div>
                         <div className="justify-self-end">
