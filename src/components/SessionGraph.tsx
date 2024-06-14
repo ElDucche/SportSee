@@ -38,7 +38,7 @@ interface TooltipProps {
 const CustomTooltip: React.FC<TooltipProps> = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="h-fit w-fit p-2 bg-white">
+        <div className="h-fit w-fit p-2 bg-white z-50">
           <p className="font-medium text-xs">{`${payload[0].value}min`}</p>
         </div>
       );
