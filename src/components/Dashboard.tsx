@@ -13,6 +13,14 @@ const Dashboard = () => {
     const activity : UseQueryResult<Activity, Error> = useQuery({queryKey:['activity'], queryFn: getUserActivity});
     const sessions : UseQueryResult<AvgSession, Error> = useQuery({queryKey:['sessions'], queryFn: getUserAverageSessions});
     const performances : UseQueryResult<Performance, Error>= useQuery({queryKey:['performances'], queryFn: getUserPerformance});
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = Math.floor(e.clientX - rect.left);
+        const voile = document.getElementById('voile');
+        if(voile) voile.style.width = `${x}px`;
+    };
+  
     if (user.isLoading || activity.isLoading || sessions.isLoading || performances.isLoading) {
         return <div>Loading...</div>; // ou un autre composant de chargement
     }
@@ -44,11 +52,18 @@ const Dashboard = () => {
                         }
                     </section>
                     <section className="grid-c flex items-center justify-between gap-4">
-                        <div className="py-4 bg-primary rounded-lg max-xl:w-44 w-56 aspect-square flex items-center p-4 pb-0 relative">
-                            <h3 className="absolute  text-white top-4 left-4 text-xs font-medium w-24">Durée moyenne des sessions</h3>
+                        <div onMouseMove={handleMouseMove} className="py-4 bg-primary rounded-lg max-xl:w-44 w-56 aspect-square flex items-center p-4 pb-0 relative">
+                            <h3 className="absolute  text-white top-4 left-4 max-xl:text-[.6rem] text-xs font-medium w-32">Durée moyenne des sessions</h3>
                             {/* graph sessions */}
                             <SessionGraph data={sessions.data.sessions}/>
+                            
+                            <div className="absolute left-0 top-0 h-full bg-gradient-to-r from-primary/80 to-primary-60" id='voile'></div>
                         </div>
+                        {/* <div className="py-4 bg-primary rounded-lg max-xl:w-44 w-56 aspect-square flex items-center p-4 pb-0 relative">
+                            <h3 className="absolute  text-white/70 top-4 left-4 max-xl:text-[.6rem] text-xs font-medium w-32">Durée moyenne des sessions</h3>
+                            <SessionGraph data={sessions.data.sessions}/>
+                        </div> */}
+
                         <div className="max-xl:w-44 w-56 aspect-square  bg-secondary rounded-lg flex items-center justify-center">  
                             {/* graph radar perf */}
                             <PerformanceGraph data={performances?.data?.data}/>
