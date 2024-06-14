@@ -24,7 +24,7 @@ const Dashboard = () => {
             <>
                 <Header user={user.data.userInfos}/>
                 <main className="layout-dashboard grid gap-4 h-fit">
-                    <div className="grid-a rounded-lg bg-tertiary relative h-[300px] flex flex-col justify-between">
+                    <section className="grid-a rounded-lg bg-tertiary relative h-[300px] flex flex-col justify-between">
                         <div className="flex justify-between items-center p-4">
                             <h3 className="font-medium text-xs">Activité quotidienne</h3>
                             <div className="flex gap-4 cursor-default">
@@ -35,34 +35,34 @@ const Dashboard = () => {
                         <div className="justify-self-end">
                             <ActivityGraph data={activity.data.sessions}/>
                         </div>
-                    </div>
-                    <div className="grid-b grid gap-4">
+                    </section>
+                    <section className="grid-b grid gap-4">
                         {
                             Object.entries(user.data.keyData).map(([key, value]) => {
                                 return <KeyData type={key} amount={value} key={key}/>
                             })
                         }
-                    </div>
-                    <div className="grid-c flex items-center justify-between gap-4">
-                        <div className="py-4 bg-primary rounded-lg w-40 aspect-square flex items-center p-4 pb-0 relative">
+                    </section>
+                    <section className="grid-c flex items-center justify-between gap-4">
+                        <div className="py-4 bg-primary rounded-lg max-xl:w-44 w-56 aspect-square flex items-center p-4 pb-0 relative">
                             <h3 className="absolute  text-white top-4 left-4 text-xs font-medium w-24">Durée moyenne des sessions</h3>
                             {/* graph sessions */}
                             <SessionGraph data={sessions.data.sessions}/>
                         </div>
-                        <div className="w-40 aspect-square  bg-secondary rounded-lg flex items-center justify-center">  
+                        <div className="max-xl:w-44 w-56 aspect-square  bg-secondary rounded-lg flex items-center justify-center">  
                             {/* graph radar perf */}
                             <PerformanceGraph data={performances?.data?.data}/>
                         </div>
-                        <div className="w-40 aspect-square self-end bg-tertiary rounded-lg  flex items-center justify-center -rotate-90 relative">
+                        <div className="max-xl:w-44 w-56 aspect-square self-end bg-tertiary rounded-lg  flex items-center justify-center -rotate-90 relative">
                             {/* graph objectif % */}
                             <ScoreGraph score={user.data.todayScore}/>
-                            <h3 className="absolute top-4 rotate-90 right-0 text-xs font-semibold">Score</h3>
-                            <div className="absolute rotate-90 text-center">
-                                <span className="text-3xl font-bold">{user.data.todayScore * 100}%</span>
-                                <p className="text-secondary/50 w-[80%] mx-auto text-sm">de votre objectif</p>
+                            <h3 className="absolute top-4 rotate-90 right-0 max-xl:text-xs font-semibold">Score</h3>
+                            <div className="absolute rotate-90 text-center  p-2 xl:p-7 bg-white z-0 aspect-square rounded-full flex flex-col justify-end">
+                                <span className="max-xl:text-3xl xl:text-4xl font-bold">{user.data.todayScore * 100}%</span>
+                                <p className="text-secondary/50 w-[80%] mx-auto max-xl:text-sm">de votre objectif</p>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 </main>
             </>
         );   
