@@ -52,7 +52,7 @@ const Dashboard = () => {
                         }
                     </section>
                     <section className="grid-c flex items-center justify-between gap-4">
-                        <div onMouseMove={handleMouseMove} className="py-4 bg-primary rounded-lg max-xl:w-44 w-56 aspect-square flex items-center p-4 pb-0 relative">
+                        <div onMouseMove={handleMouseMove} className="py-4 bg-primary rounded-lg max-xl:w-44 w-56 2xl:w-72 aspect-square flex items-center p-4 pb-0 relative">
                             <h3 className="absolute  text-white top-4 left-4 max-xl:text-[.6rem] text-xs font-medium w-32">Durée moyenne des sessions</h3>
                             {/* graph sessions */}
                             <SessionGraph data={sessions.data.sessions}/>
@@ -64,15 +64,15 @@ const Dashboard = () => {
                             <SessionGraph data={sessions.data.sessions}/>
                         </div> */}
 
-                        <div className="max-xl:w-44 w-56 aspect-square  bg-secondary rounded-lg flex items-center justify-center">  
+                        <div className="max-xl:w-44 w-56 2xl:w-72 aspect-square  bg-secondary rounded-lg flex items-center justify-center">  
                             {/* graph radar perf */}
                             <PerformanceGraph data={performances?.data?.data}/>
                         </div>
-                        <div className="max-xl:w-44 w-56 aspect-square self-end bg-tertiary rounded-lg  flex items-center justify-center -rotate-90 relative">
+                        <div className="max-xl:w-44 w-56 2xl:w-72 aspect-square self-end bg-tertiary rounded-lg  flex items-center justify-center -rotate-90 relative">
                             {/* graph objectif % */}
                             <ScoreGraph score={user.data.todayScore}/>
                             <h3 className="absolute top-4 rotate-90 right-0 max-xl:text-xs font-semibold">Score</h3>
-                            <div className="absolute rotate-90 text-center  p-2 xl:p-7 bg-white z-0 aspect-square rounded-full flex flex-col justify-end">
+                            <div className="absolute rotate-90 text-center  p-2 xl:p-7 2xl:p-11 bg-white z-0 aspect-square rounded-full flex flex-col justify-end">
                                 <span className="max-xl:text-3xl xl:text-4xl font-bold">{user.data.todayScore * 100}%</span>
                                 <p className="text-secondary/50 w-[80%] mx-auto max-xl:text-sm">de votre objectif</p>
                             </div>
